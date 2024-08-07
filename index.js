@@ -9,9 +9,6 @@ const fs = require('fs');
 const url = require('url');
 const port = 4000;
 let db;
-const cors = require('cors');
-app.use(cors({ origin: '*' }));
-
 
 const server = http.createServer(async (req, res) => {
     // Handle CORS headers
@@ -67,10 +64,11 @@ function getContentType(url) {
     return 'text/plain';
 }
 
-io = socketIo(server, {
+const io = socketIo(server, {
     cors: {
-        origin: '*',
+        origin: 'http://localhost:5178', // Allow this origin
         methods: ['GET', 'POST'],
+        allowedHeaders: ['Content-Type'],
     }
 });
 
