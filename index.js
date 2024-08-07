@@ -9,6 +9,9 @@ const fs = require('fs');
 const url = require('url');
 const port = 4000;
 let db;
+const cors = require('cors');
+app.use(cors({ origin: 'http://localhost:5178' }));
+
 
 const server = http.createServer(async (req, res) => {
     // Handle CORS headers
