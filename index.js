@@ -10,7 +10,7 @@ const url = require('url');
 const port = 4000;
 let db;
 const cors = require('cors');
-app.use(cors({ origin: 'http://localhost:5178' }));
+app.use(cors({ origin: '*' }));
 
 
 const server = http.createServer(async (req, res) => {
