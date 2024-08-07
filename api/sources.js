@@ -44,7 +44,7 @@ async function addSources(db, req, res, workspaceId) {
         } catch (err) {
             console.error('Failed to add source:', err);
             res.writeHead(500, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ error: 'Failed to add source' }));
+            res.end(JSON.stringify({ error: err }));
         }
     });
 }
