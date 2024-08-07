@@ -19,7 +19,7 @@ GET http://localhost:3000/api/sources/deleteSources/66b1da961d083400400b0915
 Content-Type: application/json
 
 ###
-POST https://notifications-app-blush.vercel.app/api/sources/addSources/66b361ccfddabdee3116d8c7
+POST https://notifications-app-hf5l.vercel.app/api/sources/addSources/66b361ccfddabdee3116d8c7
 Content-Type: application/json
 
 { "name": "Source # 4", "type": "PostGreSQL" }
