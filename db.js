@@ -1,5 +1,5 @@
 const { MongoClient } = require('mongodb');
-const mongoURI = 'mongodb+srv://m-hashir-malik:1q2w3e4r5t6y@test.aii8c5e.mongodb.net/Test';
+const mongoURI = 'mongodb+srv://hashirr:343713343713@cluster0.qgy3b.mongodb.net/';
 
 const connectToMongo = async () => {
     try {
