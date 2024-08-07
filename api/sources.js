@@ -30,7 +30,7 @@ async function addSources(db, req, res, workspaceId) {
                 return;
             }
 
-            // const sources = db.collection('sources');
+            const sources = db.collection('sources');
             // const newSource = {
             //     name,
             //     type,
@@ -45,7 +45,7 @@ async function addSources(db, req, res, workspaceId) {
         } catch (err) {
             console.error('Failed to add source:', err);
             res.writeHead(500, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ error: err }));
+            res.end('Failed to add source:', err);
         }
     });
 }
