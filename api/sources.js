@@ -24,23 +24,23 @@ async function addSources(db, req, res, workspaceId) {
         const { name, type } = JSON.parse(body);
 
         try {
-            // if (!name || !type || !workspaceId) {
-            //     res.writeHead(400, { 'Content-Type': 'application/json' });
-            //     res.end(JSON.stringify({ error: 'Name, type, and workspaceId are required' }));
-            //     return;
-            // }
+            if (!name || !type || !workspaceId) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: 'Name, type, and workspaceId are required' }));
+                return;
+            }
 
             const sources = db.collection('sources');
-            // const newSource = {
-            //     name,
-            //     type,
-            //     workspace: new ObjectId(workspaceId)
-            // };
+            const newSource = {
+                name,
+                type,
+                workspace: new ObjectId(workspaceId)
+            };
 
-            // const result = await sources.insertOne(newSource);
-            // newSource._id = result.insertedId
+            const result = await sources.insertOne(newSource);
+            newSource._id = result.insertedId
             res.writeHead(201, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify(db));
+            res.end(JSON.stringify(newSource));
         } catch (err) {
             console.error('Failed to add source:', err);
             res.writeHead(500, { 'Content-Type': 'application/json' });
