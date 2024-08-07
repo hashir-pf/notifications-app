@@ -10,8 +10,6 @@ const url = require('url');
 const port = 4000;
 let db;
 
-var cors = require('cors')
-app.use(cors()) 
 
 const server = http.createServer(async (req, res) => {
     // Handle CORS headers
@@ -70,7 +68,7 @@ function getContentType(url) {
 
 const io = socketIo(server, {
     cors: {
-        origin: 'http://localhost:5178', // Allow this origin
+        origin: '*', // Allow all origins
         methods: ['GET', 'POST'],
         allowedHeaders: ['Content-Type'],
     }
