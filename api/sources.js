@@ -30,15 +30,15 @@ async function addSources(db, req, res, workspaceId) {
                 return;
             }
 
-            const sources = db.collection('sources');
+            // const sources = db.collection('sources');
             const newSource = {
                 name,
                 type,
-                // workspace: new ObjectId(workspaceId)
+                workspace: new ObjectId(workspaceId)
             };
 
-            const result = await sources.insertOne(newSource);
-            newSource._id = result.insertedId
+            // const result = await sources.insertOne(newSource);
+            // newSource._id = result.insertedId
             res.writeHead(201, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify(newSource));
         } catch (err) {
