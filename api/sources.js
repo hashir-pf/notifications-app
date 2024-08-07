@@ -30,7 +30,7 @@ async function addSources(db, req, res, workspaceId) {
             //     return;
             // }
 
-            // const sources = db.collection('sources');
+            const sources = db.collection('sources');
             // const newSource = {
             //     name,
             //     type,
