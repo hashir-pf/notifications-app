@@ -1,0 +1,19 @@
+###
+GET http://localhost:3000/api/sources/getSources/66ac74558f8b15f375ffcef0
+Content-Type: application/json
+
+###
+POST http://localhost:3000/api/sources/addSources/66ac74558f8b15f375ffcef0
+Content-Type: application/json
+
+{ "name": "Source # 4", "type": "PostGreSQL" }
+
+###
+PUT http://localhost:3000/api/sources/updateSources/66b1bc428cd4a52f2691c5aa
+Content-Type: application/json
+
+{ "name": "Source # 0", "type": "PostGreSQL" }
+
+###
+GET http://localhost:3000/api/sources/deleteSources/66b1da961d083400400b0915
+Content-Type: application/json
