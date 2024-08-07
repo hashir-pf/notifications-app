@@ -31,17 +31,17 @@ async function addSources(db, req, res, workspaceId) {
             }
 
             const sources = db.collection('sources');
-            // const newSource = {
-            //     name,
-            //     type,
-            //     workspace: new ObjectId(workspaceId)
-            // };
+            const newSource = {
+                name,
+                type,
+                workspace: new ObjectId(workspaceId)
+            };
 
-            // const result = await sources.insertOne(newSource);
-            // newSource._id = result.insertedId
+            const result = await sources.insertOne(newSource);
+            newSource._id = result.insertedId
             res.writeHead(201, { 'Content-Type': 'application/json' });
             // res.end(JSON.stringify(newSource));
-            res.end(JSON.stringify({name : "Hashir"}));
+            res.end(JSON.stringify(newSource));
         } catch (err) {
             console.error('Failed to add source:', err);
             res.writeHead(500, { 'Content-Type': 'application/json' });

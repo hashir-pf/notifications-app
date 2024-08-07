@@ -1,10 +1,11 @@
 const { MongoClient } = require('mongodb');
-const mongoURI = 'mongodb+srv://hashirr:343713343713@cluster0.qgy3b.mongodb.net/';
+const  dotenv  = require('dotenv')
+dotenv.config();
 
 const connectToMongo = async () => {
     try {
         // Create a new MongoClient
-        client = new MongoClient(mongoURI);
+        client = new MongoClient(process.env.MONGO_URI);
         
         // Connect to the MongoDB cluster
         await client.connect();
