@@ -26,7 +26,7 @@ const server = http.createServer(async (req, res) => {
 
     // Static file serving
     if (req.url === '/') {
-        fs.readFile('index.html', (err, data) => {
+        fs.readFile('./index.html', (err, data) => {
             if (err) {
                 res.writeHead(500);
                 res.end(`Error loading index.html: ${err}`);
