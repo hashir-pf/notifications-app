@@ -10,13 +10,17 @@ const url = require('url');
 const port = 4000;
 let db;
 
+var cors = require('cors')
+app.use(cors()) 
+
 const server = http.createServer(async (req, res) => {
     // Handle CORS headers
 
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
+    res.setHeader("Access-Control-Allow-Origin", "*")
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    res.setHeader("Access-Control-Max-Age", "1800");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
     // Handle OPTIONS requests for CORS preflight
     if (req.method === 'OPTIONS') {
         res.writeHead(204);
