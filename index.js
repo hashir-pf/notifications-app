@@ -68,9 +68,10 @@ function getContentType(url) {
 
 const io = new Server(server, {
     cors: {
-      origin: "*",
+      origin: "http://localhost:5178",
       allowedHeaders: ["Content-Type"],
-      allowedMethods: ["GET", "POST"]
+      allowedMethods: ["GET", "POST"],
+      credentials: true
     }
   });
 
