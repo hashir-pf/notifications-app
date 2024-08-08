@@ -1,6 +1,6 @@
 const { ObjectId } = require('mongodb');
 const http = require('http');
-const socketIo = require('socket.io');
+const { Server } = require('socket.io');
 const path = require('path');
 const connectToMongo = require('./db');
 const setupSourcesChangeStream = require('./changeStreams/sources');
@@ -66,13 +66,13 @@ function getContentType(url) {
     return 'text/plain';
 }
 
-const io = socketIo(server, {
+const io = new Server(server, {
     cors: {
-        origin: '*', // Allow all origins
-        methods: ['GET', 'POST'],
-        allowedHeaders: ['Content-Type'],
+      origin: "http://localhost:5178/",
+      allowedHeaders: ["Content-Type"],
+      credentials: true
     }
-});
+  });
 
 const getUserById = async (collection, userId) => {
     try {
